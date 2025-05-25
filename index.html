@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maheshwari Matrimony Form</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      background: linear-gradient(to right, #f9f9f9, #e6f2ff);
+      color: #333;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    p.note {
+      color: #e74c3c;
+      font-size: 14px;
+      font-style: italic;
+      margin-top: -10px;
+      text-align: center;
+    }
+    form {
+      max-width: 750px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+    label span.required {
+      color: red;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    textarea { resize: vertical; }
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #output {
+      max-width: 750px;
+      margin: 30px auto 10px;
+      background: #f4fdf9;
+      padding: 20px;
+      border-left: 5px solid #28a745;
+      border-radius: 8px;
+      font-size: 15px;
+      white-space: pre-wrap;
+    }
+    #copyBtn {
+      display: block;
+      margin: 10px auto;
+      background-color: #28a745;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Maheshwari Matrimony Form</h2>
+<p class="note">*Fields marked with an asterisk are mandatory</p>
+
+<form id="matrimonyForm">
+  <label><span class="required">*</span> Candidate Name:</label>
+  <input type="text" id="name" placeholder="Enter full name" required />
+
+  <label><span class="required">*</span> Category:</label>
+  <select id="category" required>
+    <option value="">Select</option>
+    <option>Boy</option>
+    <option>Girl</option>
+  </select>
+
+  <label><span class="required">*</span> Date of Birth:</label>
+  <input type="date" id="dob" required />
+
+  <label><span class="required">*</span> Birth Time:</label>
+  <input type="text" id="birthTime" placeholder="e.g. 02:47 PM" required />
+
+  <label><span class="required">*</span> Place of Birth:</label>
+  <input type="text" id="birthPlace" placeholder="e.g. Indore, Madhya Pradesh" required />
+
+  <label><span class="required">*</span> Height:</label>
+  <input type="text" id="height" placeholder="e.g. 5'6&quot;" required />
+
+  <label><span class="required">*</span> Education:</label>
+  <input type="text" id="education" placeholder="e.g. B.Tech in Computer Science" required />
+
+  <label><span class="required">*</span> Occupation:</label>
+  <input type="text" id="occupation" placeholder="e.g. Software Engineer" required />
+
+  <label><span class="required">*</span> Working City:</label>
+  <input type="text" id="workingCity" placeholder="e.g. Bangalore" required />
+
+  <label><span class="required">*</span> Native City (Residence):</label>
+  <input type="text" id="nativeCity" placeholder="e.g. Udaipur" required />
+
+  <label><span class="required">*</span> Sakha Self:</label>
+  <input type="text" id="sakhaSelf" placeholder="e.g. Barkha" required />
+
+  <label><span class="required">*</span> Sakha Nanihal:</label>
+  <input type="text" id="sakhaNanihal" placeholder="e.g. Ghotiya" required />
+
+  <label><span class="required">*</span> Status:</label>
+  <select id="status" required>
+    <option value="">Select</option>
+    <option>Unmarried</option>
+    <option>Divorced</option>
+  </select>
+
+  <label><span class="required">*</span> Kundali Milan:</label>
+  <select id="kundali" required>
+    <option value="">Select</option>
+    <option>Yes</option>
+    <option>No</option>
+    <option>Optional</option>
+  </select>
+
+  <label>Preference for Partner:</label>
+  <textarea id="preference" rows="2" placeholder="e.g. Well-educated, settled in metro city..."></textarea>
+
+  <label>Other Details (If any):</label>
+  <textarea id="otherDetails" rows="2" placeholder="e.g. Can relocate post marriage, vegetarian family preferred..."></textarea>
+
+  <label><span class="required">*</span> Contact 1 - Name:</label>
+  <input type="text" id="contact1Name" placeholder="e.g. Rajesh Kumar" required />
+  <label><span class="required">*</span> Contact 1 - Relation:</label>
+  <input type="text" id="contact1Relation" placeholder="e.g. Father" required />
+  <label><span class="required">*</span> Contact 1 - Mobile:</label>
+  <input type="text" id="contact1Mob" placeholder="e.g. 9876543210" required />
+
+  <label><span class="required">*</span> Contact 2 - Name:</label>
+  <input type="text" id="contact2Name" placeholder="e.g. Suresh Kumar" required />
+  <label><span class="required">*</span> Contact 2 - Relation:</label>
+  <input type="text" id="contact2Relation" placeholder="e.g. Brother" required />
+  <label><span class="required">*</span> Contact 2 - Mobile:</label>
+  <input type="text" id="contact2Mob" placeholder="e.g. 9876543211" required />
+
+  <button type="button" onclick="generateCaption()">Generate Caption</button>
+</form>
+
+<div id="output"></div>
+<button id="copyBtn" type="button" onclick="copyCaption()" style="display:none;">Copy Caption</button>
+
+<script>
+  let currentCaption = "";
+
+  function get(id) {
+    return document.getElementById(id).value.trim();
+  }
+
+  function generateCaption() {
+    const formattedDOB = get('dob') ? new Date(get('dob')).toLocaleDateString('en-IN') : '';
+    currentCaption =
+`*${get('category')} Matrimony Profile*
+
+*Name:* ${get('name')}
+*DOB:* ${formattedDOB}
+*Birth Time:* ${get('birthTime')}
+*Place of Birth:* ${get('birthPlace')}
+*Height:* ${get('height')}
+*Education:* ${get('education')}
+*Occupation:* ${get('occupation')}
+*Working City:* ${get('workingCity')}
+*Native City:* ${get('nativeCity')}
+*Sakha(Self/Nanihal):* ${get('sakhaSelf')} / ${get('sakhaNanihal')}
+*Status:* ${get('status')}
+*Kundali Milan:* ${get('kundali')}
+*Partner Preference:* ${get('preference')}
+${get('otherDetails') ? `*Other Details:* ${get('otherDetails')}` : ''}
+
+*Contact 1:* ${get('contact1Name')} (${get('contact1Relation')}) - ${get('contact1Mob')}
+*Contact 2:* ${get('contact2Name')} (${get('contact2Relation')}) - ${get('contact2Mob')}
+
+_Shared via Maheshwari Matrimony Group_`;
+
+    document.getElementById('output').innerText = currentCaption;
+    document.getElementById('copyBtn').style.display = 'block';
+  }
+
+  function copyCaption() {
+    if (!currentCaption) {
+      alert("Please generate the caption first.");
+      return;
+    }
+    navigator.clipboard.writeText(currentCaption).then(() => {
+      alert("Caption copied to clipboard!");
+    });
+  }
+</script>
+
+</body>
+</html>
