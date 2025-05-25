@@ -4,215 +4,228 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Maheshwari Matrimony Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding: 20px;
-      background: linear-gradient(to right, #f9f9f9, #e6f2ff);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f9f9f9, #eef3f8);
+      margin: 0;
+      padding: 30px;
       color: #333;
     }
     h2 {
       text-align: center;
-      color: #2c3e50;
+      color: #005792;
+      margin-bottom: 10px;
     }
-    p.note {
-      color: #e74c3c;
-      font-size: 14px;
-      font-style: italic;
-      margin-top: -10px;
-      text-align: center;
-    }
-    form {
-      max-width: 750px;
+    .form-container {
+      max-width: 780px;
       margin: auto;
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     }
     label {
       display: block;
       margin-top: 15px;
       font-weight: 600;
     }
-    label span.required {
-      color: red;
-    }
+    .required { color: red; margin-right: 4px; }
     input, select, textarea {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
+      padding: 12px 14px;
+      margin-top: 6px;
       border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 14px;
+      border-radius: 8px;
+      background-color: #fafafa;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #005792;
+      background-color: #fff;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(0, 87, 146, 0.15);
     }
     textarea { resize: vertical; }
     button {
-      margin-top: 20px;
-      padding: 12px 20px;
-      background-color: #007bff;
+      margin-top: 25px;
+      padding: 14px 20px;
+      background-color: #005792;
       color: white;
       border: none;
-      border-radius: 6px;
-      font-size: 16px;
+      border-radius: 10px;
       cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
       transition: background 0.3s ease;
     }
-    button:hover {
-      background-color: #0056b3;
-    }
-    #output {
-      max-width: 750px;
-      margin: 30px auto 10px;
-      background: #f4fdf9;
+    button:hover { background-color: #003f6a; }
+    #caption {
+      margin-top: 30px;
+      background: #f5f8fa;
       padding: 20px;
-      border-left: 5px solid #28a745;
-      border-radius: 8px;
+      border-radius: 12px;
+      border-left: 4px solid #005792;
+      white-space: pre-line;
       font-size: 15px;
-      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+    .note {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 10px;
     }
     #copyBtn {
-      display: block;
-      margin: 10px auto;
+      display: inline-block;
+      margin-top: 15px;
       background-color: #28a745;
+    }
+    #copyBtn:hover { background-color: #1c7430; }
+
+    @media (max-width: 600px) {
+      .form-container { padding: 20px; }
     }
   </style>
 </head>
 <body>
+  <div class="form-container">
+    <h2>Maheshwari Matrimony Form</h2>
+    <p class="note"><span class="required">*</span> marked fields are mandatory</p>
 
-<h2>Candidate Caption Generator</h2>
-<p class="note">*Fields marked with an asterisk are mandatory</p>
+    <form id="matrimonyForm">
+      <label><span class="required">*</span>Candidate Name:</label>
+      <input type="text" id="name" required placeholder="Full Name" style="text-transform: capitalize">
 
-<form id="matrimonyForm">
-  <label><span class="required">*</span> Candidate Name:</label>
-  <input type="text" id="name" placeholder="Enter full name" required />
+      <label><span class="required">*</span>Category:</label>
+      <select id="category" required>
+        <option value="">Select</option>
+        <option>Girl</option>
+        <option>Boy</option>
+      </select>
 
-  <label><span class="required">*</span> Category:</label>
-  <select id="category" required>
-    <option value="">Select</option>
-    <option>Boy</option>
-    <option>Girl</option>
-  </select>
+      <label><span class="required">*</span>Date of Birth:</label>
+      <input type="date" id="dob" required>
 
-  <label><span class="required">*</span> Date of Birth:</label>
-  <input type="date" id="dob" required />
+      <label><span class="required">*</span>Birth Time:</label>
+      <input type="time" id="birthTime" required>
 
-  <label><span class="required">*</span> Birth Time:</label>
-  <input type="text" id="birthTime" placeholder="e.g. 02:47 PM" required />
+      <label><span class="required">*</span>Birth Place:</label>
+      <input type="text" id="birthPlace" required placeholder="e.g., Indore, Madhya Pradesh" style="text-transform: capitalize">
 
-  <label><span class="required">*</span> Place of Birth:</label>
-  <input type="text" id="birthPlace" placeholder="e.g. Indore, Madhya Pradesh" required />
+      <label><span class="required">*</span>Height:</label>
+      <input type="text" id="height" required placeholder="e.g., 5'6">
 
-  <label><span class="required">*</span> Height:</label>
-  <input type="text" id="height" placeholder="e.g. 5'6&quot;" required />
+      <label><span class="required">*</span>Education:</label>
+      <input type="text" id="education" required placeholder="e.g., MBA, B.Tech" style="text-transform: capitalize">
 
-  <label><span class="required">*</span> Education:</label>
-  <input type="text" id="education" placeholder="e.g. B.Tech in Computer Science,Dr,MBBS,ETC" required />
+      <label><span class="required">*</span>Occupation:</label>
+      <input type="text" id="occupation" required placeholder="e.g., Software Engineer" style="text-transform: capitalize">
 
-  <label><span class="required">*</span> Occupation:</label>
-  <input type="text" id="occupation" placeholder="e.g. Software Engineer, Business,Etc." required />
+      <label><span class="required">*</span>Working City:</label>
+      <input type="text" id="workingCity" required placeholder="e.g., Mumbai" style="text-transform: capitalize">
 
-  <label><span class="required">*</span> Working City:</label>
-  <input type="text" id="workingCity" placeholder="e.g. Pune" required />
+      <label><span class="required">*</span>Native City (Residence):</label>
+      <input type="text" id="nativeCity" required placeholder="e.g., Jodhpur" style="text-transform: capitalize">
 
-  <label><span class="required">*</span> Native City (Residence):</label>
-  <input type="text" id="nativeCity" placeholder="e.g. Nashik" required />
+      <label><span class="required">*</span>Kundali Milan:</label>
+      <select id="kundali" required>
+        <option value="">Select</option>
+        <option>Yes</option>
+        <option>Optional</option>
+      </select>
 
-  <label><span class="required">*</span> Sakha Self:</label>
-  <input type="text" id="sakhaSelf" placeholder="Self" required />
+      <label><span class="required">*</span>Status:</label>
+      <select id="status" required>
+        <option value="">Select</option>
+        <option>Unmarried</option>
+        <option>Divorced</option>
+      </select>
 
-  <label><span class="required">*</span> Sakha Nanihal:</label>
-  <input type="text" id="sakhaNanihal" placeholder="Nanihal" required />
+      <label><span class="required">*</span>Sakha Self:</label>
+      <input type="text" id="sakhaSelf" required placeholder="Self" style="text-transform: capitalize">
 
-  <label><span class="required">*</span> Status:</label>
-  <select id="status" required>
-    <option value="">Select</option>
-    <option>Unmarried</option>
-    <option>Divorced</option>
-  </select>
+      <label><span class="required">*</span>Sakha Nanihal:</label>
+      <input type="text" id="sakhaNanihal" required placeholder="Nanihal" style="text-transform: capitalize">
 
-  <label><span class="required">*</span> Kundali Milan:</label>
-  <select id="kundali" required>
-    <option value="">Select</option>
-    <option>Yes</option>
-    <option>No</option>
-    <option>Optional</option>
-  </select>
+      <label>Preference for Partner:</label>
+      <textarea id="partnerPref" placeholder="e.g., Educated, kind, family-oriented"></textarea>
 
-  <label>Preference for Partner:</label>
-  <textarea id="preference" rows="2" placeholder="e.g. Well-educated, settled in metro city..."></textarea>
+      <label>Other Details If any:</label>
+      <textarea id="otherDetails" placeholder="Any extra information..." style="text-transform: capitalize"></textarea>
 
-  <label>Other Details (If any):</label>
-  <textarea id="otherDetails" rows="2" placeholder="e.g. Can relocate post marriage, vegetarian family preferred..."></textarea>
+      <label><span class="required">*</span>Contact1 Person Name:</label>
+      <input type="text" id="contact1Name" required placeholder="e.g., Mr. Rajesh Maheshwari" style="text-transform: capitalize">
 
-  <label><span class="required">*</span> Contact 1 - Name:</label>
-  <input type="text" id="contact1Name" placeholder="e.g. Rajesh Kumar" required />
-  <label><span class="required">*</span> Contact 1 - Relation:</label>
-  <input type="text" id="contact1Relation" placeholder="e.g. Father" required />
-  <label><span class="required">*</span> Contact 1 - Mobile:</label>
-  <input type="text" id="contact1Mob" placeholder="e.g. 9876543210" required />
+      <label><span class="required">*</span>Relation:</label>
+      <input type="text" id="contact1Relation" required placeholder="e.g., Father,Brother,Mamaji,Etc." style="text-transform: capitalize">
 
-  <label><span class="required">*</span> Contact 2 - Name:</label>
-  <input type="text" id="contact2Name" placeholder="e.g. Suresh Kumar" required />
-  <label><span class="required">*</span> Contact 2 - Relation:</label>
-  <input type="text" id="contact2Relation" placeholder="e.g. Brother" required />
-  <label><span class="required">*</span> Contact 2 - Mobile:</label>
-  <input type="text" id="contact2Mob" placeholder="e.g. 9876543211" required />
+      <label><span class="required">*</span>Mobile Number:</label>
+      <input type="number" id="contact1Mobile" required placeholder="e.g., 9876543210">
 
-  <button type="button" onclick="generateCaption()">Generate Caption</button>
-</form>
+      <label><span class="required">*</span>Contact2 Person Name:</label>
+      <input type="text" id="contact2Name" required placeholder="e.g., Mr. Suresh Maheshwari" style="text-transform: capitalize">
 
-<div id="output"></div>
-<button id="copyBtn" type="button" onclick="copyCaption()" style="display:none;">Copy Caption</button>
+      <label><span class="required">*</span>Relation:</label>
+      <input type="text" id="contact2Relation" required placeholder="e.g., Uncle,Sister,Self,Etc" style="text-transform: capitalize">
 
-<script>
-  let currentCaption = "";
+      <label><span class="required">*</span>Mobile Number:</label>
+      <input type="number" id="contact2Mobile" required placeholder="e.g., 9876543211">
 
-  function get(id) {
-    return document.getElementById(id).value.trim();
-  }
+      <button type="submit">Generate Caption</button>
+    </form>
 
-  function generateCaption() {
-    const formattedDOB = get('dob') ? new Date(get('dob')).toLocaleDateString('en-IN') : '';
-    currentCaption =
-`*${get('category')} Matrimony Profile*
+    <div id="caption" style="display:none;"></div>
+    <button id="copyBtn" style="display:none;">Copy Caption</button>
+  </div>
 
-*Name:* ${get('name')}
-*DOB:* ${formattedDOB}
-*Birth Time:* ${get('birthTime')}
-*Place of Birth:* ${get('birthPlace')}
-*Height:* ${get('height')}
-*Education:* ${get('education')}
-*Occupation:* ${get('occupation')}
-*Working City:* ${get('workingCity')}
-*Native City:* ${get('nativeCity')}
-*Sakha(Self/Nanihal):* ${get('sakhaSelf')} / ${get('sakhaNanihal')}
-*Status:* ${get('status')}
-*Kundali Milan:* ${get('kundali')}
-*Partner Preference:* ${get('preference')}
-${get('otherDetails') ? `*Other Details:* ${get('otherDetails')}` : ''}
+  <script>
+    const form = document.getElementById('matrimonyForm');
+    const captionDiv = document.getElementById('caption');
+    const copyBtn = document.getElementById('copyBtn');
 
-*Contact*
-*1:* ${get('contact1Name')} (${get('contact1Relation')}) - ${get('contact1Mob')}
-*2:* ${get('contact2Name')} (${get('contact2Relation')}) - ${get('contact2Mob')}
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        alert('Please fill all required fields.');
+        return;
+      }
 
-`;
+      const get = id => document.getElementById(id).value;
 
-    document.getElementById('output').innerText = currentCaption;
-    document.getElementById('copyBtn').style.display = 'block';
-  }
+      const caption = `
+	  #${get('category')}Candidate
+👤*Name*:${get('name')} | ${get('category')}
+📅*DOB*: ${get('dob')} at ${get('birthTime')}
+📍*Birth Place*: ${get('birthPlace')}
+📏*Height*: ${get('height')}
+🎓*Education*: ${get('education')}
+💼*Occupation*: ${get('occupation')}
+🌆*Working City*: ${get('workingCity')}
+🏠*Native City*: ${get('nativeCity')}
+🔮*Kundali Milan*: ${get('kundali')}
+🔗*Status*: ${get('status')}
+🧬*Sakha(Self/Nanihal)*: ${get('sakhaSelf')} / ${get('sakhaNanihal')}
+🤝*Partner Preference*: ${get('partnerPref') || "Not specified"}
+📝*Other Details*: ${get('otherDetails') || "N/A"}
 
-  function copyCaption() {
-    if (!currentCaption) {
-      alert("Please generate the caption first.");
-      return;
-    }
-    navigator.clipboard.writeText(currentCaption).then(() => {
-      alert("Caption copied to clipboard!");
+*Contact*:
+📞 1: ${get('contact1Name')} (${get('contact1Relation')}) - ${get('contact1Mobile')}
+📞 2: ${get('contact2Name')} (${get('contact2Relation')}) - ${get('contact2Mobile')}
+      `.trim();
+
+      captionDiv.style.display = 'block';
+      copyBtn.style.display = 'inline-block';
+      captionDiv.innerText = caption;
     });
-  }
-</script>
 
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(captionDiv.innerText);
+      copyBtn.innerText = "Copied!";
+      setTimeout(() => copyBtn.innerText = "Copy Caption", 2000);
+    });
+  </script>
 </body>
 </html>
