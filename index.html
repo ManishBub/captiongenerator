@@ -81,7 +81,7 @@
 </head>
 <body>
 
-<h2>Maheshwari Matrimony Form</h2>
+<h2>Candidate Caption Generator</h2>
 <p class="note">*Fields marked with an asterisk are mandatory</p>
 
 <form id="matrimonyForm">
@@ -108,22 +108,22 @@
   <input type="text" id="height" placeholder="e.g. 5'6&quot;" required />
 
   <label><span class="required">*</span> Education:</label>
-  <input type="text" id="education" placeholder="e.g. B.Tech in Computer Science" required />
+  <input type="text" id="education" placeholder="e.g. B.Tech in Computer Science,Dr,MBBS,ETC" required />
 
   <label><span class="required">*</span> Occupation:</label>
-  <input type="text" id="occupation" placeholder="e.g. Software Engineer" required />
+  <input type="text" id="occupation" placeholder="e.g. Software Engineer, Business,Etc." required />
 
   <label><span class="required">*</span> Working City:</label>
-  <input type="text" id="workingCity" placeholder="e.g. Bangalore" required />
+  <input type="text" id="workingCity" placeholder="e.g. Pune" required />
 
   <label><span class="required">*</span> Native City (Residence):</label>
-  <input type="text" id="nativeCity" placeholder="e.g. Udaipur" required />
+  <input type="text" id="nativeCity" placeholder="e.g. Nashik" required />
 
   <label><span class="required">*</span> Sakha Self:</label>
-  <input type="text" id="sakhaSelf" placeholder="e.g. Barkha" required />
+  <input type="text" id="sakhaSelf" placeholder="Self" required />
 
   <label><span class="required">*</span> Sakha Nanihal:</label>
-  <input type="text" id="sakhaNanihal" placeholder="e.g. Ghotiya" required />
+  <input type="text" id="sakhaNanihal" placeholder="Nanihal" required />
 
   <label><span class="required">*</span> Status:</label>
   <select id="status" required>
@@ -193,10 +193,11 @@
 *Partner Preference:* ${get('preference')}
 ${get('otherDetails') ? `*Other Details:* ${get('otherDetails')}` : ''}
 
-*Contact 1:* ${get('contact1Name')} (${get('contact1Relation')}) - ${get('contact1Mob')}
-*Contact 2:* ${get('contact2Name')} (${get('contact2Relation')}) - ${get('contact2Mob')}
+*Contact*
+*1:* ${get('contact1Name')} (${get('contact1Relation')}) - ${get('contact1Mob')}
+*2:* ${get('contact2Name')} (${get('contact2Relation')}) - ${get('contact2Mob')}
 
-_Shared via Maheshwari Matrimony Group_`;
+`;
 
     document.getElementById('output').innerText = currentCaption;
     document.getElementById('copyBtn').style.display = 'block';
